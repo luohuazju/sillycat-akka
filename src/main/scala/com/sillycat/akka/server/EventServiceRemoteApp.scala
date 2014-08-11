@@ -5,16 +5,16 @@ import akka.kernel.Bootable
 import com.sillycat.akka.actor.EventMessageActor
 import com.typesafe.config.ConfigFactory
 
-class RemoteNodeAppliation extends Bootable {
+class EventServiceRemoteApp extends Bootable {
 
-  val actorSystem = ActorSystem("EventServiceSystem", ConfigFactory.load().getConfig("RemoteSys"))
+  val system = ActorSystem("EventServiceRemoteSystem", ConfigFactory.load("RemoteSystem"))
 
   def startup = {
-    actorSystem.actorOf(Props[EventMessageActor], name = "remoteActor")
+    system.actorOf(Props[EventMessageActor], name = "EventMessageRemoteActor")
   }
 
   def shutdown = {
-    actorSystem.shutdown()
+    system.shutdown()
   }
 
 }

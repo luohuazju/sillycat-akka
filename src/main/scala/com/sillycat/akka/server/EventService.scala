@@ -29,7 +29,7 @@ object EventService extends Logging {
     logger.info("EventService shut down.")
   }
 
-  private lazy val actorSystem = ActorSystem("EventServiceSystem")
-  private lazy val router = actorSystem.actorOf(Props[EventMessageActor].withRouter(FromConfig()), name = "EventMessageRouter")
+  private lazy val actorSystem = ActorSystem("EventServiceLocalSystem")
+  private lazy val router = actorSystem.actorOf(Props[EventMessageActor].withRouter(FromConfig()), name = "EventMessageLocalRouter")
 
 }

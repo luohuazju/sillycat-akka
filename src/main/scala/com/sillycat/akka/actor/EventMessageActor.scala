@@ -15,6 +15,11 @@ class EventMessageActor extends Actor with Logging {
     case item: EventMessage => {
       //handle the eventMessage
       logger.debug("Logging I receive one object:" + item)
+      //this will send the response back
+      //sender ! item + " Server is running this task"
+    }
+    case item: String => {
+      logger.debug("Logging I receive one object:" + item)
     }
     case _ => logger.error("Received a message I don't understand.")
   }

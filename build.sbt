@@ -29,7 +29,8 @@ libraryDependencies ++= Seq(
     "com.typesafe.akka"   %% "akka-actor"                    % "2.3.4",
     "com.typesafe.akka"   %% "akka-testkit"                  % "2.3.4",
     "com.typesafe.akka"   %% "akka-transactor"               % "2.3.4",
-    "com.typesafe.akka"   %% "akka-kernel"                   % "2.3.4"
+    "com.typesafe.akka"   %% "akka-kernel"                   % "2.3.4",
+    "com.typesafe.akka"   %% "akka-remote"                   % "2.3.4"
 )
 
 seq(Revolver.settings: _*)
