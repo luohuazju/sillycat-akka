@@ -23,10 +23,6 @@ object EventService {
     router ! item
   }
 
-  def startAll(array: List[EventMessage]) = {
-    router ! array
-  }
-
   def shutdown() = {
     logger.info("Broadcast PoisonPill...")
     router ! Broadcast(PoisonPill)

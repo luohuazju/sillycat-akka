@@ -23,11 +23,4 @@ class EventServiceTest extends FunSuite with BeforeAndAfter {
     EventService.startOne(item)
   }
 
-  test("Testing EventService Start all...") {
-    def item1 = EventMessage(1, "request1", "request1", "admin", DateTime.now())
-    def item2 = EventMessage(2, "request2", "request2", "admin", DateTime.now())
-    val list = List(item1, item2)
-    EventService.startAll(list)
-  }
-
 }

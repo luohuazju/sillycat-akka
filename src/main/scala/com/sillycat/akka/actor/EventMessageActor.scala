@@ -16,10 +16,6 @@ class EventMessageActor extends Actor with Logging {
       //handle the eventMessage
       logger.debug("I receive one object:" + item)
     }
-    case array: List[EventMessage] => {
-      //handle the list of message
-      logger.debug("I receive array of objects:" + array)
-    }
     case _ => logger.error("Received a message I don't understand.")
   }
 

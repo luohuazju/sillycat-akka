@@ -9,4 +9,4 @@ case class EventMessage(id: Long,
   request: String,
   response: String,
   operator: String,
-  eventDate: DateTime)
+  eventDate: DateTime) extends Serializable
