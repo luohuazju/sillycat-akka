@@ -21,6 +21,7 @@ class EventServiceTest extends FunSuite with BeforeAndAfter {
   test("Testing EventService start one...") {
     def item = EventMessage(1, "request1", "request2", "admin", DateTime.now())
     EventService.startOne(item)
+    Thread.sleep(1000)
   }
 
 }

@@ -6,7 +6,7 @@ organization := "com.sillycat.akka"
 
 version := "1.0" 
 
-scalaVersion := "2.10.0"
+scalaVersion := "2.10.4"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8") 
 
@@ -22,12 +22,13 @@ libraryDependencies ++= Seq(
     "org.slf4j"           % "slf4j-simple"                  % "1.7.7",
     "org.slf4j"           % "slf4j-api"                     % "1.7.7",
     "org.scalatest"       % "scalatest_2.10"                % "1.9.1",
-    "org.joda"                  %   "joda-convert"          % "1.3.1",
-    "joda-time"                 %   "joda-time"             % "2.2",
+    "org.joda"            % "joda-convert"                  % "1.3.1",
+    "joda-time"           % "joda-time"                     % "2.2",
     "com.typesafe"		    %%	"scalalogging-slf4j"	        % "1.0.1",
     "com.typesafe.akka"   %% "akka-actor"                   % "2.3.4",
     "com.typesafe.akka"   %% "akka-testkit"                 % "2.3.4",
-    "com.typesafe.akka"   %% "akka-transactor"              % "2.3.4"
+    "com.typesafe.akka"   %% "akka-transactor"              % "2.3.4",
+    "com.typesafe.akka"   %% "akka-kernel"                  % "2.3.4"
 )
 
 seq(Revolver.settings: _*)

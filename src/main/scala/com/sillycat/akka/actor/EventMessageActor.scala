@@ -14,7 +14,7 @@ class EventMessageActor extends Actor with Logging {
   def receive = {
     case item: EventMessage => {
       //handle the eventMessage
-      logger.debug("I receive one object:" + item)
+      logger.info("Logging I receive one object:" + item)
     }
     case _ => logger.error("Received a message I don't understand.")
   }

@@ -14,9 +14,9 @@ import com.sillycat.akka.model.EventMessage
 
 class EventService extends Logging {}
 
-object EventService {
+object EventService extends Logging {
 
-  private val logger = (new EventService()).logger
+  //private val logger = (new EventService()).logger
   logger.info("Starting EventService...")
 
   def startOne(item: EventMessage) = {
