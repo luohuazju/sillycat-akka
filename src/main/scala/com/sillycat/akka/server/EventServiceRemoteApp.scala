@@ -7,7 +7,7 @@ import com.typesafe.config.ConfigFactory
 
 class EventServiceRemoteApp extends Bootable {
 
-  val system = ActorSystem("EventServiceRemoteSystem", ConfigFactory.load("RemoteSystem"))
+  val system = ActorSystem("EventServiceRemoteSystem", ConfigFactory.load("remotesystem"))
 
   def startup = {
     system.actorOf(Props[EventMessageActor], name = "EventMessageRemoteActor")

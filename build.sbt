@@ -20,7 +20,6 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
     "com.typesafe"		    %% "scalalogging-slf4j"	           % "1.0.1",
-    //"org.slf4j"           %  "slf4j-simple"                  % "1.7.7",
     "org.slf4j"           %  "slf4j-log4j12"                 % "1.7.7",
     "org.slf4j"           %  "slf4j-api"                     % "1.7.7",
     "org.scalatest"       %  "scalatest_2.10"                % "1.9.1",

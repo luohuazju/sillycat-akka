@@ -1,11 +1,11 @@
 package com.sillycat.akka.server
 
-import com.sillycat.akka.actor.EventMessageActor
+import com.sillycat.akka.actor.{ ActorWatcher, EventMessageActor }
+import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.slf4j.Logging
-import akka.actor.{ ActorSystem, Actor, Props }
+import akka.actor._
 import akka.routing.{ FromConfig, RoundRobinRouter }
 import akka.routing.Broadcast
-import akka.actor.PoisonPill
 import com.sillycat.akka.model.EventMessage
 
 /**
@@ -29,7 +29,11 @@ object EventService extends Logging {
     logger.info("EventService shut down.")
   }
 
-  private lazy val actorSystem = ActorSystem("EventServiceLocalSystem")
+  private lazy val actorSystem = ActorSystem("EventServiceLocalSystem", ConfigFactory.load("localjvm"))
   private lazy val router = actorSystem.actorOf(Props[EventMessageActor].withRouter(FromConfig()), name = "EventMessageLocalRouter")
 
+  private lazy val routerWatcher =
+    actorSystem.actorOf(Props(new ActorWatcher(router)), name = "EventMessageLocalRouterWatcher")
+
 }
+

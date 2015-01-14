@@ -12,9 +12,9 @@ import com.sillycat.akka.model.EventMessage
 /**
  * Created by carl on 8/11/14.
  */
-class EventMessageLocalActor extends Actor with Logging {
+class EventMessageLocalActor(path: String) extends Actor with Logging {
 
-  val remoteActor = context.actorSelection("akka.tcp://EventServiceRemoteSystem@10.190.191.15:5150/user/EventMessageRemoteActor")
+  val remoteActor = context.actorSelection(path)
 
   implicit val timeout = Timeout(5 seconds)
 
