@@ -2,7 +2,7 @@ package com.sillycat.akka.server
 
 import akka.actor._
 import akka.routing.{ Broadcast, FromConfig }
-import com.sillycat.akka.actor.{ ActorWatcher, EventMessageLocalActor, EventMessageActor }
+import com.sillycat.akka.actor.{ ActorWatcher, EventMessageActor }
 import com.sillycat.akka.model.EventMessage
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.slf4j.Logging
@@ -14,9 +14,7 @@ import org.joda.time.DateTime
 object EventServiceClientApp extends App {
 
   val system = ActorSystem("EventServiceLocalSystem", ConfigFactory.load("clientsystem"))
-  val remotePath =
-    "akka.tcp://EventServiceRemoteSystem@10.190.191.15:2552/user/EventMessageRemoteActor"
-  val clientActor = system.actorOf(Props(classOf[EventMessageLocalActor], remotePath), "EventMessageClientActor")
+  val clientActor = system.actorOf(Props[EventMessageActor].withRouter(FromConfig()), "EventMessageClientActor")
 
   private lazy val routerWatcher =
     system.actorOf(Props(new ActorWatcher(clientActor)), name = "EventMessageClientRouterWatcher")
