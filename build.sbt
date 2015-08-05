@@ -1,4 +1,4 @@
-import AssemblyKeys._
+//import AssemblyKeys._
 
 name := "sillycat-akka" 
 
@@ -32,23 +32,23 @@ libraryDependencies ++= Seq(
     "com.typesafe.akka"   %% "akka-remote"                   % "2.3.4"
 )
 
-seq(Revolver.settings: _*)
+//seq(Revolver.settings: _*)
 
 publishArtifact in Test := true
 
-assemblySettings
+//assemblySettings
 
-mainClass in assembly := Some("com.sillycat.akka.Boot")
+//mainClass in assembly := Some("com.sillycat.akka.Boot")
 
-artifact in (Compile, assembly) ~= { art =>
-  art.copy(`classifier` = Some("assembly"))
-}
+//artifact in (Compile, assembly) ~= { art =>
+//  art.copy(`classifier` = Some("assembly"))
+//}
 
-excludedJars in assembly <<= (fullClasspath in assembly) map { cp =>
-  cp filter {_.data.getName == "parboiled-scala_2.10.0-RC1-1.1.3.jar"}
-}
+//excludedJars in assembly <<= (fullClasspath in assembly) map { cp =>
+//  cp filter {_.data.getName == "parboiled-scala_2.10.0-RC1-1.1.3.jar"}
+//}
 
-addArtifact(artifact in (Compile, assembly), assembly)
+//addArtifact(artifact in (Compile, assembly), assembly)
 
-scalariformSettings
+//scalariformSettings
 
